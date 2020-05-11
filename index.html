@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Library Heist" startnode="1" creator="Twine" creator-version="2.3.7" ifid="8C6780DC-1DCD-4BAC-92D4-4BFFF5749E0C" zoom="1" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Intro" tags="" position="586,67" size="100,100">The library is closed, but your librarian promised you a book recommendation!  You’ll have to take matters into your own hands.  Under cover of darkness, you plan a heist of the librarian’s codex- the legendary key to book recommendations.  Your friends and family have tried to talk you out of it, saying that the codex doesn’t exist, but you still believe.  How else could librarians do what they do?  They must be hiding something.
+<tw-storydata name="Library Heist" startnode="1" creator="Twine" creator-version="2.3.8" ifid="8C6780DC-1DCD-4BAC-92D4-4BFFF5749E0C" zoom="1" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Intro" tags="" position="586,67" size="100,100">The library is closed, but your librarian promised you a book recommendation!  You’ll have to take matters into your own hands.  Under cover of darkness, you plan a heist of the librarian’s codex- the legendary key to book recommendations.  Your friends and family have tried to talk you out of it, saying that the codex doesn’t exist, but you still believe.  How else could librarians do what they do?  They must be hiding something.
 
 Intel has informed you of a safe in the head librarian’s office.  It must be where the codex is hidden! Now you just have to get inside, get a book, and escape before you’re caught. 
 
@@ -53,7 +53,7 @@ A woman gets out of the car.  It&#39;s the cleaning lady!  Maybe you can sneak i
 
 Now you just have to be careful you aren&#39;t caught. 
 
-[[Crouch and enter the building.]] </tw-passagedata><tw-passagedata pid="10" name="The back offices." tags="" position="455,950" size="100,100">The offices are lined with bookshelves, boxes and filing cabinets.  The desks are piled high.  There must be thousands of places to look!  You start rifling through papers randomly, hoping something will stand out.
+[[Crouch and enter the building.]] </tw-passagedata><tw-passagedata pid="10" name="The back offices." tags="" position="456,944" size="100,100">The offices are lined with bookshelves, boxes and filing cabinets.  The desks are piled high.  There must be thousands of places to look!  You start rifling through papers randomly, hoping something will stand out.
 
 You move a stack of papers to the side and uncover a red notebook with a strange language on the spine:
 
@@ -65,10 +65,12 @@ It doesn’t look like anything you recognize.  You open the book and see a ridd
 &lt;i&gt;Although foreign to you these words may be,
 Their truth is hidden in the number three. &lt;/i&gt;
 
-UHDGLQJ LV IXQ, VRRQ BRX ZLOO VHH,
+UHDGLQJ LV IXQ
+VRRQ BRX ZLOO VHH
 L ZLOO JLYH BRX D ERRN WR UHDG
 
-The number three... of course the librarians had to write it in a secret code!  Now you just have to decipher it.
+The number three... of course the librarians had to write it in a secret code!  Now you just have to decipher it(no punctuation!).
+
 
 (set: $office_solution1 to &quot;&quot;)
 (link-repeat: &quot;Enter Solution&quot;)[(set: $office_solution1 to (prompt: &quot;What does it say?&quot;, &quot;&quot;))(replace: ?solution)[$office_solution1]]
@@ -98,8 +100,8 @@ It&#39;s the cleaning lady!  You wait for her to get out of her car, then get a 
 You hear the vacuum shut off in the distance.  You have to hurry!  Where do you go now?
 
 [[The back offices.]] 
-[[The kid&#39;s play area.]] </tw-passagedata><tw-passagedata pid="14" name="Success" tags="" position="379,1228" size="100,100">{
-(if: $office_solution1 is &#39;reading is fun, soon you will see, i will give you a book to read&#39;)[Now you’re sure you are on the right track!  All you want is to unlock the secrets of the library and its staff.  You knew they were hiding something incredible- this will show your family!&lt;/br&gt;
+[[The kid&#39;s play area.]] </tw-passagedata><tw-passagedata pid="14" name="Success" tags="" position="382,1218" size="100,100">{
+(if: (words:(lowercase: $office_solution1)) is (a: &#39;reading&#39;, &#39;is&#39;, &#39;fun&#39;, &#39;soon&#39;, &#39;you&#39;, &#39;will&#39;, &#39;see&#39;, &#39;i&#39;, &#39;will&#39;, &#39;give&#39;, &#39;you&#39;, &#39;a&#39;, &#39;book&#39;, &#39;to&#39;, &#39;read&#39;))[Now you’re sure you are on the right track!  All you want is to unlock the secrets of the library and its staff.  You knew they were hiding something incredible- this will show your family!&lt;/br&gt;
 But you aren’t finished yet.  You still have to find the actual codex, and the cleaning lady will make her way back here before long!  You turn the notebook over and an index card falls out.  Another clue!  You will have to decipher it:&lt;br/&gt;&lt;br/&gt;
 
 QHAW WR ODVW&lt;br/&gt;&lt;br/&gt;
@@ -114,8 +116,8 @@ QHAW WR ODVW&lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;[[Hint2]]
 ](else:)[
     Nope!
-]}</tw-passagedata><tw-passagedata pid="15" name="Hint" tags="" position="530,1226" size="100,100">Each letter is three spaces off from its usual place in the alphabet</tw-passagedata><tw-passagedata pid="16" name="Success2" tags="" position="308,1377" size="100,100">{
-(if: $office_solution2 is &#39;next to last&#39;)[
+]}</tw-passagedata><tw-passagedata pid="15" name="Hint" tags="" position="530,1226" size="100,100">Each letter is three spaces off from its usual place in the alphabet</tw-passagedata><tw-passagedata pid="16" name="Success2" tags="" position="307,1377" size="100,100">{
+(if: (words:(lowercase: $office_solution2)) is (a: &#39;next&#39;, &#39;to&#39;, &#39;last&#39;))[
 Next to last... what could it mean?  Next to last...&lt;br/&gt;&lt;br/&gt;
 
 [[Bookshelf?]]&lt;br/&gt;
